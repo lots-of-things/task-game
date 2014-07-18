@@ -1,3 +1,4 @@
+% Will McFadden (wmcfadden)
 function winnings = taskgame_sim(probabilities, choices, minval, maxval, easyT, hardT, totalT)
 	winnings = 0;
 	i = 1;

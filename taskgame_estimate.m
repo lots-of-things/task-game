@@ -1,3 +1,4 @@
+% Will McFadden (wmcfadden)
 function winnings = taskgame_estimate(probabilities, choices, minval, maxval, easyT, hardT, totalT)
 	cbar = sum(choices)/length(probabilities);
 	n_C = totalT/easyT/length(probabilities);

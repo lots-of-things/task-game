@@ -2,7 +2,6 @@
 % simulation and analysis of a task game frequently used during psych
 % studies.  The basic premise is you choose between doing easy and hard
 % tasks based on the expected rewards.  I was trying to find an optimum strategy.
-% taskgame)
 
 val = [];
 cmids = [];
