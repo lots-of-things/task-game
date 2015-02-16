@@ -6,3 +6,5 @@ MATLAB functions to simulate and analyze a task game frequently used during econ
 
 To learn more you can view my post on the game and how I simulated it.
 http://www.makeloft.org/2015/02/procrastinating-with-time-optimization.html
+
+You can run it by downloading the files and running test_taskgame in MATLAB.
