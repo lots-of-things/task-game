@@ -7,12 +7,12 @@ val = [];
 cmids = [];
 chighs = [];
 clows = [];
-probabilities = [0.33, 0.66, 1];
+probabilities = [0.12, 0.5, 0.88];
 minval = 1;
 maxval = 5;
 easyT = 1;
 hardT = 2;
-totalT = 2000;
+totalT = 10000;
 for k = 1:1000
 	k
 	cmid = unifrnd(minval, maxval);
@@ -21,16 +21,16 @@ for k = 1:1000
 	cmids = [cmids cmid];
 	chighs = [chighs chigh];
 	clows = [clows clow];
-	val = [val taskgame_sim(probabilities, [clow, cmid, chigh], minval, maxval, easyT, hardT, totalT)/totalT];
+	val = [val taskgame_estimate(probabilities, [clow, cmid, chigh], minval, maxval, easyT, hardT, totalT)/totalT];
 end
 max(val)
 clows(val==max(val))
 cmids(val==max(val))
 chighs(val==max(val))
 
-% plot([clows cmids chighs], [val 0.5+val 1+val], '.');
+plot([clows cmids chighs], [val 0.5+val 1+val], '.');
 
-plot3(cmids,chighs,val,'.');
+
 xx = cmids;
 yy = chighs;
 zz = val;
@@ -39,12 +39,10 @@ maxX = max(xx);
 minY = min(yy);
 maxY = max(yy);
 
-targetSize = [10 10];
+targetSize = [20 20];
 
 xxBin = round( (xx-minX)/(maxX-minX)*(targetSize(1)-1) ) +1;
 yyBin = round( (yy-minY)/(maxY-minY)*(targetSize(2)-1) ) +1;
+
 %# map by using accumarray, take the mean of each bin 
-map = accumarray([xxBin(:),yyBin(:)],zz,targetSize,@max,0);
-xm = accumarray([xxBin(:),yyBin(:)],xx,targetSize,@mean,0);
-ym = accumarray([xxBin(:),yyBin(:)],yy,targetSize,@mean,0);
-mesh(xm,ym,map)
+map = accumarray([xxBin(:),yyBin(:)],zz,targetSize,@mean,0);

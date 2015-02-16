@@ -19,7 +19,7 @@ function winnings = taskgame_sim(probabilities, choices, minval, maxval, easyT, 
 		else
 			if(offer>c)
 				t = t+hardT;
-			else
+            else
 				t = t+easyT;
             end
         end
